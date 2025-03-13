@@ -32,8 +32,8 @@ amqp.connect('amqp://localhost', function (error0, connection) {
             args.forEach(function (severity) {
                 // severity is the binding key - queue will be bound to exchange if binding key = routing key in exchange
                 // eg. receiving: node routing/receive.js info warning 
-                // eg. sending: node routing/send.js info - sends to this queue
-                // eg. sending: node routing/send.js error - does not send to this queue
+                // eg. sending: node routing/send.js info - sends to receiving queue above
+                // eg. sending: node routing/send.js error - does not send to receiving queue above
                 channel.bindQueue(q.queue, exchange, severity);
             });
 
